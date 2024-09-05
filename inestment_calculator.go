@@ -10,6 +10,7 @@ func main() {
 	var expectedReturnRate float64
 	var years int
 
+	fmt.Println("Answer the questions and get your future value calculated")
 	// Prompt the user for input
 	fmt.Print("Enter the investment amount: ")
 	fmt.Scan(&investmentAmount)
