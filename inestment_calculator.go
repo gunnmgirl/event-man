@@ -22,5 +22,6 @@ func main() {
 	fmt.Scan(&years)
 
 	futureValue := float64(investmentAmount) * math.Pow(1+expectedReturnRate/100, float64(years))
+	fmt.Println("Amazing, your future value has been calculated")
 	fmt.Println(futureValue)
 }
