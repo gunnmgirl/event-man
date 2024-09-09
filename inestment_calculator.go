@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"math"
 )
 
 // Format as currency
@@ -22,6 +23,7 @@ func calculateFutureValue(investmentAmount, expectedReturnRate float64, years in
 }
 
 func main() {
+	const inflationRate = 2.5
 	var investmentAmount, expectedReturnRate, annualContribution float64
 	var years int
 
@@ -43,7 +45,10 @@ func main() {
 	// Calculate future value
 	futureValue := calculateFutureValue(investmentAmount, expectedReturnRate, years, annualContribution)
 
+	futureRealValue := futureValue / math.Pow(1+inflationRate/100, float64(years))
+
 	// Display final value
 	fmt.Println("\nFinal Future Value:")
 	fmt.Println(formatCurrency(futureValue))
+	fmt.Println("Future real value: ", futureRealValue)
 }
