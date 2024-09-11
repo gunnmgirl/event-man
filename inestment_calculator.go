@@ -33,7 +33,7 @@ func main() {
 	// Calculate earnings
 	ebt, profit, ratio := calculateEarnings(revenue, expenses, taxRate)
 
-	fmt.Println("Earnings before tax are: ", ebt)
-	fmt.Println("Earnings after tax are: ", profit)
+	fmt.Println("Earnings before tax are: ", formatCurrency(ebt))
+	fmt.Println("Earnings after tax are: ", formatCurrency(profit))
 	fmt.Println("Ratio EBT/profit is: ", ratio)
 }
