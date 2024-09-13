@@ -4,6 +4,8 @@ import (
 	"fmt"
 )
 
+const taxRate = 19 // in percentage
+
 // Format as currency
 func formatCurrency(amount float64) string {
 	return fmt.Sprintf("$%.2f", amount)
@@ -19,7 +21,6 @@ func calculateEarnings(revenueVal, ExpensesVal, taxRateVal float64) (float64, fl
 }
 
 func main() {
-	const taxRate = 19 // in percentage
 	var revenue, expenses float64
 
 	fmt.Println("Answer the questions and get value of your earnings before and after taxes")
