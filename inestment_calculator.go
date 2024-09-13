@@ -20,16 +20,18 @@ func calculateEarnings(revenueVal, ExpensesVal, taxRateVal float64) (float64, fl
 	return earningsBeforeTax, earningsAfterTax, ratio
 }
 
+func enterUserValue(text string, variable *float64) {
+	fmt.Printf("Enter the %s: ", text)
+	fmt.Scan(variable)
+}
+
 func main() {
 	var revenue, expenses float64
 
 	fmt.Println("Answer the questions and get value of your earnings before and after taxes")
 
-	fmt.Print("Enter the revenue: ")
-	fmt.Scan(&revenue)
-
-	fmt.Print("Enter the expected expenses: ")
-	fmt.Scan(&expenses)
+	enterUserValue("revenue", &revenue)
+	enterUserValue("expected expenses", &expenses)
 
 	// Calculate earnings
 	ebt, profit, ratio := calculateEarnings(revenue, expenses, taxRate)
