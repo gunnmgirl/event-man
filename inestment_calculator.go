@@ -2,7 +2,13 @@ package main
 
 import (
 	"fmt"
+	"os"
 )
+
+func writeBalanceToFile(balance float64) {
+	balanceTxt := fmt.Sprint(balance)
+	os.WriteFile("balance.txt", []byte(balanceTxt), 0o644)
+}
 
 // const taxRate = 19 // in percentage
 
@@ -69,6 +75,7 @@ func main() {
 			}
 			accountBalance += depositAmount
 			fmt.Println("New account balance is: ", accountBalance)
+			writeBalanceToFile(accountBalance)
 		case 3:
 			fmt.Print("Enter an amount to withdraw: ")
 			var withdrawAmount float64
@@ -80,6 +87,7 @@ func main() {
 			}
 			accountBalance -= withdrawAmount
 			fmt.Println("New account balance is: ", accountBalance)
+			writeBalanceToFile(accountBalance)
 
 		case 4:
 			fmt.Println("Goodbye!")
