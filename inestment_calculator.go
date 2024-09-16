@@ -3,11 +3,21 @@ package main
 import (
 	"fmt"
 	"os"
+	"strconv"
 )
+
+const accountBalanceFile = "balance.txt"
 
 func writeBalanceToFile(balance float64) {
 	balanceTxt := fmt.Sprint(balance)
-	os.WriteFile("balance.txt", []byte(balanceTxt), 0o644)
+	os.WriteFile(accountBalanceFile, []byte(balanceTxt), 0o644)
+}
+
+func getBalanceFromFile() float64 {
+	data, _ := os.ReadFile(accountBalanceFile)
+	balanceTxt := string(data)
+	balanceNum, _ := strconv.ParseFloat(balanceTxt, 64)
+	return balanceNum
 }
 
 // const taxRate = 19 // in percentage
@@ -45,7 +55,7 @@ func main() {
 	// fmt.Println("Earnings before tax are: ", formatCurrency(ebt))
 	// fmt.Println("Earnings after tax are: ", formatCurrency(profit))
 	// fmt.Printf("Ratio EBT/profit is: %.2f\n", ratio)
-	accountBalance := 1000.00
+	accountBalance := getBalanceFromFile()
 
 	fmt.Println("Welcome to Go Bank!")
 	fmt.Println("What do you want to do?")
