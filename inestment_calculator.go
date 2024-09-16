@@ -1,23 +1,33 @@
 package main
 
 import (
+	"errors"
 	"fmt"
 	"os"
 	"strconv"
 )
 
-const accountBalanceFile = "balance.txt"
+const (
+	accountBalanceFile  = "balance.txt"
+	defaultBalanceValue = 1000
+)
 
 func writeBalanceToFile(balance float64) {
 	balanceTxt := fmt.Sprint(balance)
 	os.WriteFile(accountBalanceFile, []byte(balanceTxt), 0o644)
 }
 
-func getBalanceFromFile() float64 {
-	data, _ := os.ReadFile(accountBalanceFile)
+func getBalanceFromFile() (float64, error) {
+	data, err := os.ReadFile(accountBalanceFile)
+	if err != nil {
+		return defaultBalanceValue, errors.New("Failed to find balance file")
+	}
 	balanceTxt := string(data)
-	balanceNum, _ := strconv.ParseFloat(balanceTxt, 64)
-	return balanceNum
+	balanceNum, err := strconv.ParseFloat(balanceTxt, 64)
+	if err != nil {
+		return defaultBalanceValue, errors.New("Failed to parse stored balance value")
+	}
+	return balanceNum, nil
 }
 
 // const taxRate = 19 // in percentage
@@ -55,7 +65,11 @@ func main() {
 	// fmt.Println("Earnings before tax are: ", formatCurrency(ebt))
 	// fmt.Println("Earnings after tax are: ", formatCurrency(profit))
 	// fmt.Printf("Ratio EBT/profit is: %.2f\n", ratio)
-	accountBalance := getBalanceFromFile()
+	accountBalance, err := getBalanceFromFile()
+	if err != nil {
+		fmt.Println("ERROR: ")
+		fmt.Println(err)
+	}
 
 	fmt.Println("Welcome to Go Bank!")
 	fmt.Println("What do you want to do?")
