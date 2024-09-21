@@ -52,19 +52,6 @@ func getBalanceFromFile() (float64, error) {
 // }
 
 func main() {
-	// var revenue, expenses float64
-
-	// fmt.Println("Answer the questions and get value of your earnings before and after taxes")
-
-	// enterUserValue("revenue", &revenue)
-	// enterUserValue("expected expenses", &expenses)
-
-	// // Calculate earnings
-	// ebt, profit, ratio := calculateEarnings(revenue, expenses, taxRate)
-
-	// fmt.Println("Earnings before tax are: ", formatCurrency(ebt))
-	// fmt.Println("Earnings after tax are: ", formatCurrency(profit))
-	// fmt.Printf("Ratio EBT/profit is: %.2f\n", ratio)
 	accountBalance, err := getBalanceFromFile()
 	if err != nil {
 		fmt.Println("ERROR: ")
