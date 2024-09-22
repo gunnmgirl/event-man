@@ -20,36 +20,15 @@ func writeBalanceToFile(balance float64) {
 func getBalanceFromFile() (float64, error) {
 	data, err := os.ReadFile(accountBalanceFile)
 	if err != nil {
-		return defaultBalanceValue, errors.New("Failed to find balance file")
+		return defaultBalanceValue, errors.New("failed to find balance file")
 	}
 	balanceTxt := string(data)
 	balanceNum, err := strconv.ParseFloat(balanceTxt, 64)
 	if err != nil {
-		return defaultBalanceValue, errors.New("Failed to parse stored balance value")
+		return defaultBalanceValue, errors.New("failed to parse stored balance value")
 	}
 	return balanceNum, nil
 }
-
-// const taxRate = 19 // in percentage
-
-// // Format as currency
-// func formatCurrency(amount float64) string {
-// 	return fmt.Sprintf("$%.2f", amount)
-// }
-
-// func calculateEarnings(revenueVal, ExpensesVal, taxRateVal float64) (float64, float64, float64) {
-// 	earningsBeforeTax := revenueVal - ExpensesVal
-// 	taxAmount := earningsBeforeTax * (taxRateVal / 100)
-// 	earningsAfterTax := earningsBeforeTax - taxAmount
-// 	ratio := earningsBeforeTax / earningsAfterTax
-
-// 	return earningsBeforeTax, earningsAfterTax, ratio
-// }
-
-// func enterUserValue(text string, variable *float64) {
-// 	fmt.Printf("Enter the %s: ", text)
-// 	fmt.Scan(variable)
-// }
 
 func main() {
 	accountBalance, err := getBalanceFromFile()
