@@ -3,7 +3,17 @@ package main
 import (
 	"errors"
 	"fmt"
+	"os"
 )
+
+const (
+	accountResultFile = "accountResult.txt"
+)
+
+func writeResultToFile(results [3]float64) {
+	resultsTxt := fmt.Sprint(results)
+	os.WriteFile(accountResultFile, []byte(resultsTxt), 0o644)
+}
 
 func main() {
 	revenue, err := getUserInput("Revenue: ")
@@ -27,6 +37,8 @@ func main() {
 	fmt.Printf("%.1f\n", ebt)
 	fmt.Printf("%.1f\n", profit)
 	fmt.Printf("%.3f\n", ratio)
+
+	writeResultToFile([3]float64{ebt, profit, ratio})
 }
 
 func calculateFinancials(revenue, expenses, taxRate float64) (float64, float64, float64) {
