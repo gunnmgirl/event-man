@@ -11,7 +11,7 @@ func main() {
 
 	var appUser *user.User
 
-	appUser, err := user.NewUser(firstName, lastName, birthdate)
+	appUser, err := user.New(firstName, lastName, birthdate)
 	if err != nil {
 		return
 	}
