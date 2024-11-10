@@ -42,3 +42,5 @@ func (n Note) Save() error {
 
 	return os.WriteFile(fileName, json, 0o644)
 }
+
+// GIT_AUTHOR_DATE="Sat Nov 09 13:53:12 2024 +0200" GIT_COMMITTER_DATE="Sat Nov 09 13:53:12 2024 +0200" git commit -m "feat: adds struct metadata"
