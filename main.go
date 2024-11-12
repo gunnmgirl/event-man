@@ -19,6 +19,12 @@ func main() {
 	}
 
 	note.Log()
+	err = note.Save()
+	if err != nil {
+		fmt.Print(err)
+		return
+	}
+	fmt.Println("saving note success")
 }
 
 func getNoteData() (string, string) {

@@ -1,29 +1,44 @@
 package note
 
 import (
+	"encoding/json"
 	"errors"
 	"fmt"
+	"os"
+	"strings"
 	"time"
 )
 
 type Note struct {
-	title     string
-	content   string
-	createdAt time.Time
+	Title     string
+	Content   string
+	CreatedAt time.Time
 }
 
-func New(title, content string) (Note, error) {
-	if title == "" || content == "" {
+func New(Title, content string) (Note, error) {
+	if Title == "" || content == "" {
 		return Note{}, errors.New("invalid input")
 	}
 	return Note{
-		title:     title,
-		content:   content,
-		createdAt: time.Now(),
+		Title:     Title,
+		Content:   content,
+		CreatedAt: time.Now(),
 	}, nil
 }
 
 func (n Note) Log() {
-	fmt.Printf("Note title: %s\n", n.title)
-	fmt.Printf("Note content: %s\n", n.content)
+	fmt.Printf("Note Title: %s\n", n.Title)
+	fmt.Printf("Note content: %s\n", n.Content)
+}
+
+func (n Note) Save() error {
+	fileName := strings.ReplaceAll(n.Title, " ", "_")
+	fileName = strings.ToLower(fileName) + ".json"
+
+	json, err := json.Marshal(n)
+	if err != nil {
+		return err
+	}
+
+	return os.WriteFile(fileName, json, 0o644)
 }
