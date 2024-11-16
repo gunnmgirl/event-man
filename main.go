@@ -33,19 +33,15 @@ func main() {
 	note.Log()
 	todo.Log()
 
-	err = todo.Save()
+	err = saveData(note)
 	if err != nil {
-		fmt.Print(err)
 		return
 	}
-	fmt.Println("saving todo success")
 
-	err = note.Save()
+	err = saveData(todo)
 	if err != nil {
-		fmt.Print(err)
 		return
 	}
-	fmt.Println("saving note success")
 }
 
 func getNoteData() (string, string) {
@@ -68,4 +64,14 @@ func getUserInput(prompt string) string {
 	text = strings.TrimSuffix(text, "\r")
 
 	return text
+}
+
+func saveData(data saver) error {
+	err := data.Save()
+	if err != nil {
+		fmt.Println("saving failed")
+		return err
+	}
+	fmt.Println("saving succeeded")
+	return nil
 }
