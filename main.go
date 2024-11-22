@@ -29,6 +29,9 @@ type outputable interface {
 // }
 
 func main() {
+	printSomething(1)
+	printSomething(1.5)
+	printSomething("Hello world")
 	title, content := getNoteData()
 	todoText := getUserInput("Todo text: ")
 
@@ -87,4 +90,8 @@ func outputData(data outputable) error {
 		return err
 	}
 	return nil
+}
+
+func printSomething(value any) {
+	fmt.Println(value)
 }
