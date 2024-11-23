@@ -49,6 +49,7 @@ func main() {
 
 	outputData(note)
 	outputData(todo)
+	printSomething(todo)
 }
 
 func getNoteData() (string, string) {
@@ -93,5 +94,20 @@ func outputData(data outputable) error {
 }
 
 func printSomething(value any) {
+	typedValue, ok := value.(int)
+	fmt.Println("oke-", ok, typedValue)
+
+	// switch value.(type) {
+	// case int:
+	// 	fmt.Println("integer value")
+	// case float64:
+	// 	fmt.Println("float value")
+	// case string:
+	// 	fmt.Println("string value")
+	// default:
+	// 	fmt.Println("default case")
+
+	// }
+
 	fmt.Println(value)
 }
