@@ -6,6 +6,8 @@ func main() {
 	prices := [4]float64{10.99, 9.99, 45.99, 20.00}
 	fmt.Println("prices-", prices[3])
 
-	featuredPrices := prices[1:3] // second value is excluded
+	featuredPrices := prices[:1] // second value is excluded
 	fmt.Println("featuredPrices-", featuredPrices)
+
+	fmt.Println("len and cap -", len(featuredPrices), cap(featuredPrices))
 }
