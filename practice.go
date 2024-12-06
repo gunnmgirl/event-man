@@ -7,13 +7,15 @@ func main() {
 	//     Output (print) that array in the command line.
 	hobbies := [3]string{"reading", "swimming", "yoga"}
 	fmt.Println("My hobbies: ", hobbies)
+	// 2) Also output more data about that array:
+	//   - The first element (standalone)
+	//   - The second and third element combined as a new list
+	fmt.Println("The first element: ", hobbies[0])
+	fmt.Println("The second and third element combined as a new list: ", hobbies[1:3])
 }
 
 // Time to practice what you learned!
 
-// 2) Also output more data about that array:
-//		- The first element (standalone)
-//		- The second and third element combined as a new list
 // 3) Create a slice based on the first element that contains
 //		the first and second elements.
 //		Create that slice in two different ways (i.e. create two slices in the end)
