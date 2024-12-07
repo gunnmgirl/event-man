@@ -12,13 +12,16 @@ func main() {
 	//   - The second and third element combined as a new list
 	fmt.Println("The first element: ", hobbies[0])
 	fmt.Println("The second and third element combined as a new list: ", hobbies[1:3])
+	//  3. Create a slice based on the first element that contains
+	//     the first and second elements.
+	//     Create that slice in two different ways (i.e. create two slices in the end)
+	newSliceOne := hobbies[0:2]
+	newSliceTwo := hobbies[:2]
+	fmt.Println("3.) -", newSliceOne, newSliceTwo)
 }
 
 // Time to practice what you learned!
 
-// 3) Create a slice based on the first element that contains
-//		the first and second elements.
-//		Create that slice in two different ways (i.e. create two slices in the end)
 // 4) Re-slice the slice from (3) and change it to contain the second
 //		and last element of the original array.
 // 5) Create a "dynamic array" that contains your course goals (at least 2 goals)
