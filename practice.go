@@ -17,13 +17,15 @@ func main() {
 	//     Create that slice in two different ways (i.e. create two slices in the end)
 	newSliceOne := hobbies[0:2]
 	newSliceTwo := hobbies[:2]
-	fmt.Println("3.) -", newSliceOne, newSliceTwo)
+	fmt.Println("3) ", newSliceOne, newSliceTwo)
+	// 4) Re-slice the slice from (3) and change it to contain the second
+	//		and last element of the original array.
+	newSlice := append(newSliceTwo, hobbies[1], hobbies[2])
+	fmt.Println("4) ", newSlice)
 }
 
 // Time to practice what you learned!
 
-// 4) Re-slice the slice from (3) and change it to contain the second
-//		and last element of the original array.
 // 5) Create a "dynamic array" that contains your course goals (at least 2 goals)
 // 6) Set the second goal to a different one AND then add a third goal to that existing dynamic array
 // 7) Bonus: Create a "Product" struct with title, id, price and create a
