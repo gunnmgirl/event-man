@@ -22,12 +22,17 @@ func main() {
 	//		and last element of the original array.
 	newSlice := append(newSliceTwo, hobbies[1], hobbies[2])
 	fmt.Println("4) ", newSlice)
+	// 5) Create a "dynamic array" that contains your course goals (at least 2 goals)
+	goals := []string{"learn go fundamentals", "make go API alone"}
+	fmt.Println("My course goalse are: ", goals)
+	// 6) Set the second goal to a different one AND then add a third goal to that existing dynamic array
+	goals[1] = "master go"
+	goals = append(goals, "learn go syntax")
+	fmt.Println("Updated goals: ", goals)
 }
 
 // Time to practice what you learned!
 
-// 5) Create a "dynamic array" that contains your course goals (at least 2 goals)
-// 6) Set the second goal to a different one AND then add a third goal to that existing dynamic array
 // 7) Bonus: Create a "Product" struct with title, id, price and create a
 //		dynamic list of products (at least 2 products).
 //		Then add a third product to the existing list of products.
