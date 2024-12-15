@@ -1,8 +1,18 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
+
+type product struct {
+	id    int
+	title string
+	price float64
+}
 
 func main() {
+	// Time to practice what you learned!
+
 	//  1. Create a new array (!) that contains three hobbies you have
 	//     Output (print) that array in the command line.
 	hobbies := [3]string{"reading", "swimming", "yoga"}
@@ -29,10 +39,11 @@ func main() {
 	goals[1] = "master go"
 	goals = append(goals, "learn go syntax")
 	fmt.Println("Updated goals: ", goals)
+	// 7) Bonus: Create a "Product" struct with title, id, price and create a
+	//		dynamic list of products (at least 2 products).
+	//		Then add a third product to the existing list of products.
+	products := []product{{id: 1, title: "Glasses", price: 49.90}, {id: 2, title: "Hand cream", price: 7.45}}
+	fmt.Println("Initial products: ", products)
+	products = append(products, product{id: 3, title: "Nail gel", price: 3.50})
+	fmt.Println("Modified products: ", products)
 }
-
-// Time to practice what you learned!
-
-// 7) Bonus: Create a "Product" struct with title, id, price and create a
-//		dynamic list of products (at least 2 products).
-//		Then add a third product to the existing list of products.
