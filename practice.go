@@ -46,4 +46,9 @@ func main() {
 	fmt.Println("Initial products: ", products)
 	products = append(products, product{id: 3, title: "Nail gel", price: 3.50})
 	fmt.Println("Modified products: ", products)
+
+	// merge slice to existing slice
+	prices := []float64{1.11, 2.22, 3.33}
+	discountPrices := []float64{9.99, 8.88, 7.77}
+	prices = append(discountPrices, prices...)
 }
