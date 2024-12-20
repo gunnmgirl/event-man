@@ -9,4 +9,6 @@ func main() {
 	}
 	fmt.Println("websites-", websites)
 	fmt.Println(websites["Amazon Web Services"])
+	websites["Dzana"] = "gunnmgirl.com"
+	fmt.Println(websites)
 }
