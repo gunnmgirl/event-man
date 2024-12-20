@@ -13,4 +13,8 @@ func main() {
 	fmt.Println(websites)
 	delete(websites, "Google")
 	fmt.Println(websites)
+	// struct vs map
+	// maps can have any type for a key (integer, struct, string)
+	// struct we use when we have a clearly defined data
+	// map we use when we have a collection of values with custom labels (keys)
 }
