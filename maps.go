@@ -8,4 +8,5 @@ func main() {
 		"Amazon Web Services": "aws.com",
 	}
 	fmt.Println("websites-", websites)
+	fmt.Println(websites["Amazon Web Services"])
 }
