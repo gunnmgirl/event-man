@@ -11,4 +11,6 @@ func main() {
 	fmt.Println(websites["Amazon Web Services"])
 	websites["Dzana"] = "gunnmgirl.com"
 	fmt.Println(websites)
+	delete(websites, "Google")
+	fmt.Println(websites)
 }
