@@ -10,4 +10,10 @@ func main() {
 	userNames = append(userNames, "Nikita")
 
 	fmt.Println("userNames", userNames)
+
+	courseRatings := make(map[string]float64, 2)
+	courseRatings["go"] = 4.7
+	courseRatings["react"] = 4.8
+
+	fmt.Println("courseRatings", courseRatings)
 }
