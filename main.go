@@ -22,4 +22,8 @@ func main() {
 	courseRatings["react"] = 4.8
 
 	courseRatings.output()
+
+	for index, value := range userNames {
+		fmt.Println("username-", index, value)
+	}
 }
