@@ -26,4 +26,8 @@ func main() {
 	for index, value := range userNames {
 		fmt.Println("username-", index, value)
 	}
+
+	for key, value := range courseRatings {
+		fmt.Println("courses-", key, value)
+	}
 }
