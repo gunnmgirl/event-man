@@ -2,32 +2,17 @@ package main
 
 import "fmt"
 
-type floatMap map[string]float64
+func main() {
+	numbers := []int{1, 2, 3, 4}
 
-func (m floatMap) output() {
-	fmt.Println("map-", m)
+	doubles := doubleNumbers(&numbers)
+	fmt.Println("doubles-", doubles)
 }
 
-func main() {
-	userNames := make([]string, 2, 5)
-
-	userNames[0] = "Michael"
-	userNames = append(userNames, "Dzana")
-	userNames = append(userNames, "Nikita")
-
-	fmt.Println("userNames", userNames)
-
-	courseRatings := make(floatMap, 2)
-	courseRatings["go"] = 4.7
-	courseRatings["react"] = 4.8
-
-	courseRatings.output()
-
-	for index, value := range userNames {
-		fmt.Println("username-", index, value)
+func doubleNumbers(numbers *[]int) []int {
+	dNumbers := []int{}
+	for _, val := range *numbers {
+		dNumbers = append(dNumbers, val*2)
 	}
-
-	for key, value := range courseRatings {
-		fmt.Println("courses-", key, value)
-	}
+	return dNumbers
 }
