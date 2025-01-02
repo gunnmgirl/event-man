@@ -3,29 +3,13 @@ package main
 import "fmt"
 
 func main() {
-	numbers := []int{1, 2, 3}
-
-	triple := transformNumbers(&numbers, createTransformer(3))
-
-	fmt.Println(triple)
-
-	double := transformNumbers(&numbers, createTransformer(2))
-
-	fmt.Println(double)
+	fmt.Println(factorial((5)))
 }
 
-func transformNumbers(numbers *[]int, transform func(int) int) []int {
-	dNumbers := []int{}
-
-	for _, val := range *numbers {
-		dNumbers = append(dNumbers, transform(val))
+func factorial(number int) int {
+	result := 1
+	for i := 1; i <= number; i++ {
+		result = result * i
 	}
-
-	return dNumbers
-}
-
-func createTransformer(factor int) func(int) int {
-	return func(number int) int {
-		return number * factor
-	}
+	return result
 }
