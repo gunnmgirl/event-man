@@ -5,11 +5,13 @@ import "fmt"
 func main() {
 	numbers := []int{1, 2, 3}
 
-	transformed := transformNumbers(&numbers, func(number int) int {
-		return number * 2
-	})
+	triple := transformNumbers(&numbers, createTransformer(3))
 
-	fmt.Println(transformed)
+	fmt.Println(triple)
+
+	double := transformNumbers(&numbers, createTransformer(2))
+
+	fmt.Println(double)
 }
 
 func transformNumbers(numbers *[]int, transform func(int) int) []int {
@@ -20,4 +22,10 @@ func transformNumbers(numbers *[]int, transform func(int) int) []int {
 	}
 
 	return dNumbers
+}
+
+func createTransformer(factor int) func(int) int {
+	return func(number int) int {
+		return number * factor
+	}
 }
