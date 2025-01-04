@@ -1,3 +1,3 @@
-module example.com/functions
+module example.com/price-calculator
 
 go 1.23.0

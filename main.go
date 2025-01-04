@@ -3,14 +3,18 @@ package main
 import "fmt"
 
 func main() {
-	fmt.Println(sumup(1, 5, 5, 5))
-}
+	var prices []float64 = []float64{10, 20, 30}
+	var taxRates []float64 = []float64{0, 0.7, 0.1, 0.15}
 
-func sumup(startingNum int, numbers ...int) int {
-	sum := startingNum
+	var result map[float64][]float64 = make(map[float64][]float64)
 
-	for _, val := range numbers {
-		sum = sum + val
+	for _, taxRate := range taxRates {
+		var taxIncludedPrices []float64 = make([]float64, len(prices))
+		for priceIndex, price := range prices {
+			taxIncludedPrices[priceIndex] = price * (1 + taxRate)
+		}
+		result[taxRate] = taxIncludedPrices
 	}
-	return sum
+
+	fmt.Println("Prices with tax-", result)
 }
